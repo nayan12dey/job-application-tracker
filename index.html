@@ -8,23 +8,25 @@
 
     <!-- Added tailwindcss and daisyui cdn -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- Added google fonts  -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Added font awesome cdn -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-     <!-- Added font family -->
+    <!-- Added font family -->
 
-     <style>
-        *{
+    <style>
+        * {
             font-family: "Geist", sans-serif;
         }
-     </style>
+    </style>
 
 </head>
 
@@ -53,12 +55,61 @@
 
 
     <!-- job section -->
-     <section id="job-section" class="w-[80%] mx-auto mt-4">
+    <section id="job-section" class="w-[80%] mx-auto mt-4 space-y-4">
         <div class="flex justify-between">
             <h2 class="text-blue-900 font-bold text-xl">Available Jobs</h2>
             <p class="text-gray-500 text-"><span>0</span> jobs</p>
         </div>
-     </section>
+
+
+        <!-- toggling button section -->
+        <div class="flex gap-2">
+            <button class="btn btn-primary">All</button>
+            <button class="btn">Interview</button>
+            <button class="btn">Rejected</button>
+        </div>
+
+        <!-- job cards section -->
+        <section>
+            <div>
+                <!-- job card info -->
+                <div class="space-y-6">
+                    <!-- job card part 1 -->
+                    <div>
+                        <h2>Mobile First Corp</h2>
+                        <p>React Native Developer</p>
+                    </div>
+
+                    <div>
+                        <p>Remote
+                            •
+                            Full-time
+                            •
+                            $130,000 - $175,000</p>
+                    </div>
+
+                    <div>
+                        <p>Not Applied</p>
+                        <p>Build cross-platform mobile applications using React Native. Work on products used by
+                            millions of users worldwide.</p>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button class="btn btn-outline btn-success">Interview</button>
+                        <button class="btn btn-outline btn-error">Rejected</button>
+                    </div>
+                </div>
+
+                <!-- job card delete btn -->
+                <div></div>
+            </div>
+
+        </section>
+
+    </section>
+
+
+
 
 
     <script src="./script.js"></script>
