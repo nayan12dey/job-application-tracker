@@ -15,3 +15,6 @@ function toggleStyle(id){
     console.log(selectedBtn);
     selectedBtn.classList.add("btn-primary")
 }
+
+
+// card status toggling
