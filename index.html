@@ -90,7 +90,7 @@
                     </div>
 
                     <div class="space-y-2">
-                        <button class="bg-primary-content p-2 rounded-md text-blue-900 font-semibold">NOT
+                        <button id="status" class="bg-primary-content p-2 rounded-md text-blue-900 font-semibold">NOT
                             APPLIED</button>
                         <p>Build cross-platform mobile applications using React Native. Work on products used by
                             millions of users worldwide.</p>
@@ -382,7 +382,7 @@
     </section>
 
     <!-- no jobs available for interview section -->
-    <section class="w-[80%] mx-auto hidden">
+    <section class="w-[80%] mx-auto hidden" id="empty-interview">
         <div class="space-y-6 py-[60px] px-50 flex flex-col justify-center items-center text-center border-2 border-gray-300 rounded-md">
             <div class="">
                 <img src="./images/jobs.png" alt="">
@@ -396,7 +396,7 @@
     </section>
 
     <!-- no jobs available for rejected section -->
-    <section class="w-[80%] mx-auto hidden">
+    <section class="w-[80%] mx-auto hidden" id="empty-rejected">
         <div class="space-y-6 py-[60px] px-50 flex flex-col justify-center items-center text-center border-2 border-gray-300 rounded-md">
             <div class="">
                 <img src="./images/jobs.png" alt="">
@@ -414,6 +414,7 @@
     <script src="./scripts/script.js"></script>
     <script src="./scripts/count.js"></script>
     <script src="./scripts/toggle.js"></script>
+    <script src="./scripts/status.js"></script>
 </body>
 
 </html>
