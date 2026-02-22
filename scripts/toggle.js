@@ -45,3 +45,25 @@ rejectedFilterBtn.addEventListener("click", function(){
     emptyRejected.classList.remove("hidden");
 })
 
+
+// toggle card clicked on interview and rejected
+allCards.addEventListener("click", function(){
+
+    console.log(event.target.classList.contains("interview-btn"))
+    if(event.target.classList.contains("interview-btn")){
+        const parentNode = event.target.parentNode.parentNode.parentNode;
+        parentNode.querySelector(".current-status").innerText = "Interview";
+        parentNode.querySelector(".current-status").classList.remove("bg-error");
+        parentNode.querySelector(".current-status").classList.add("bg-success");
+    }
+
+    if(event.target.classList.contains("rejected-btn")){
+        const parentNode = event.target.parentNode.parentNode.parentNode;
+        parentNode.querySelector(".current-status").innerText = "Rejected"
+         parentNode.querySelector(".current-status").classList.remove("bg-success");
+        parentNode.querySelector(".current-status").classList.add("bg-error");
+    }
+})
+
+
+
