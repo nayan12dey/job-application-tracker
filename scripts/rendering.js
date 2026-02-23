@@ -3,6 +3,7 @@
 
 let interviewList = [];
 let rejectedList = [];
+let activeFilter = "all";
 
 const interviewSection = document.getElementById("interview-section");
 const rejectedSection = document.getElementById("rejected-section");
@@ -97,21 +98,21 @@ allCards.addEventListener("click", function () {
         renderRejected();
     }
 
-    else if(event.target.classList.contains("delete-btn")){
-        const parentNode = event.target.parentNode;
-        // console.log(parentNode);
-        
-        const card = parentNode;
+    else if (event.target.closest(".delete-btn")) {
+        const card = event.target.closest(".newCard");
+        console.log(card);
+
+        // const card = parentNode;
         // console.log(card);
 
         card.remove();
 
-        
+
 
         renderInterview();
         renderRejected();
         calculateCount();
-        
+
 
 
     }
@@ -162,6 +163,9 @@ interviewSection.addEventListener("click", function (event) {
         renderInterview();
         renderRejected();
 
+
+
+
     }
 
     else if (event.target.classList.contains("rejected-btn")) {
@@ -203,6 +207,7 @@ interviewSection.addEventListener("click", function (event) {
 
         renderInterview();
         renderRejected();
+
     }
 })
 
@@ -290,6 +295,8 @@ rejectedSection.addEventListener("click", function () {
 
         renderInterview();
         renderRejected();
+
+
     }
 })
 
@@ -301,12 +308,17 @@ rejectedSection.addEventListener("click", function () {
 function renderInterview() {
     interviewSection.innerHTML = ""
 
+    if (interviewList.length == 0) {
+        emptyInterview.classList.remove("hidden");
+    }
+    else {
+        emptyInterview.classList.add("hidden");
 
-    for (let interview of interviewList) {
-        // console.log(interview);
-        let div = document.createElement("div");
-        div.className = "border border-gray-300 p-4 flex justify-between rounded-md mb-4"
-        div.innerHTML = `
+        for (let interview of interviewList) {
+            // console.log(interview);
+            let div = document.createElement("div");
+            div.className = "border border-gray-300 p-4 flex justify-between rounded-md mb-4"
+            div.innerHTML = `
             <div class="space-y-4">
                     <div>
                         <h2 class="company text-blue-900 font-bold text-xl">${interview.companyName}</h2>
@@ -330,16 +342,19 @@ function renderInterview() {
 
             <!-- job card delete btn -->
             <div
-                class="w-10 h-10 border-2 border-gray-200 text-gray-500 rounded-full flex justify-center items-center cursor-pointer">
+                class="w-10 h-10 sm:border-2 border-gray-200 text-gray-500 rounded-full flex justify-center items-center cursor-pointer">
                 <i class="fa-regular fa-trash-can"></i>
             </div>
 
         `
 
-        interviewSection.appendChild(div);
+            interviewSection.appendChild(div);
+        }
+
+        calculateCount()
     }
 
-    calculateCount()
+
 }
 
 
@@ -348,12 +363,18 @@ function renderInterview() {
 function renderRejected() {
     rejectedSection.innerHTML = "";
 
-    for (let rejected of rejectedList) {
-        console.log(rejected);
+    if (rejectedList.length == 0) {
+        emptyRejected.classList.remove("hidden");
+    }
+    else {
+        emptyRejected.classList.add("hidden");
+        
+        for (let rejected of rejectedList) {
+            // console.log(rejected);
 
-        let div = document.createElement("div");
-        div.className = "border border-gray-300 p-4 flex justify-between rounded-md mb-4"
-        div.innerHTML = `
+            let div = document.createElement("div");
+            div.className = "border border-gray-300 p-4 flex justify-between rounded-md mb-4"
+            div.innerHTML = `
             <div class="space-y-4">
                     <div>
                         <h2 class="company text-blue-900 font-bold text-xl">${rejected.companyName}</h2>
@@ -377,17 +398,19 @@ function renderRejected() {
 
             <!-- job card delete btn -->
             <div
-                class="w-10 h-10 border-2 border-gray-200 text-gray-500 rounded-full flex justify-center items-center cursor-pointer">
+                class="w-10 h-10 sm:border-2 border-gray-200 text-gray-500 rounded-full flex justify-center items-center cursor-pointer">
                 <i class="fa-regular fa-trash-can"></i>
             </div>
         
         `
 
-        rejectedSection.appendChild(div);
+            rejectedSection.appendChild(div);
+        }
+
+        calculateCount();
     }
 
-    rejectedFilterCount++;
-    calculateCount()
+
 }
 
 
@@ -405,11 +428,19 @@ const rejectedCount = document.getElementById("rejectedCount")
 // calculate count
 function calculateCount() {
     totalCount.innerText = allCardSection.children.length;
-    jobCount.innerText = totalCount.innerText;
-
 
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+
+    if (activeFilter == "all") {
+        jobCount.innerText = totalCount.innerText;
+    }
+    else if (activeFilter == "interview") {
+        jobCount.innerText = `${interviewList.length} out of ${totalCount.innerText}`
+    }
+    else if (activeFilter == "rejected") {
+        jobCount.innerText = ` ${rejectedList.length} out of ${totalCount.innerText}`
+    }
 
     // console.log(interviewCount.innerText);
 

@@ -8,7 +8,7 @@ const interviewFilterBtn = document.getElementById("interview-filter-btn")
 const rejectedFilterBtn = document.getElementById("rejected-filter-btn")
 // console.log(rejectedFilterBtn)
 
-function toggleStyle(id){
+function toggleStyle(id) {
     allFilterBtn.classList.remove("btn-primary")
     interviewFilterBtn.classList.remove("btn-primary")
     rejectedFilterBtn.classList.remove("btn-primary")
@@ -22,56 +22,74 @@ function toggleStyle(id){
 
 // no jobs available toggling for interview and rejected
 const allCards = document.getElementById("allCards");
+const emptyAll = document.getElementById("empty-all");
 const emptyInterview = document.getElementById("empty-interview")
 const emptyRejected = document.getElementById("empty-rejected")
 
-function hide(){
+function hide() {
     allCards.classList.add("hidden");
     interviewSection.classList.add("hidden");
     rejectedSection.classList.add("hidden");
+    emptyAll.classList.add("hidden");
     emptyInterview.classList.add("hidden");
     emptyRejected.classList.add("hidden");
 
 }
 
-allFilterBtn.addEventListener("click", function(){
+allFilterBtn.addEventListener("click", function () {
+    activeFilter = "all";
     hide();
-    allCards.classList.remove("hidden");
+    const card = allCards.querySelectorAll(".newCard");
+    if (card.length == 0) {
+        emptyAll.classList.remove("hidden");
+    }
+    else {
+        allCards.classList.remove("hidden");
+    }
+    
     jobCount.innerText = totalCount.innerText;
-
-
- 
 })
 
 
-interviewFilterBtn.addEventListener("click", function(){
+interviewFilterBtn.addEventListener("click", function () {
+    activeFilter = "interview";
     hide();
     interviewSection.classList.remove("hidden");
 
     console.log(interviewList.length);
-    jobCount.innerText =` ${interviewList.length} out of ${totalCount.innerText}`
+    jobCount.innerText = `${interviewList.length} out of ${totalCount.innerText}`
 
-    if(interviewList.length == 0){
+    if (interviewList.length == 0) {
         emptyInterview.classList.remove("hidden")
     }
-    else{
+    else {
         emptyInterview.classList.add("hidden");
     }
 })
 
-rejectedFilterBtn.addEventListener("click", function(){
+rejectedFilterBtn.addEventListener("click", function () {
+    activeFilter = "rejected";
     hide();
     rejectedSection.classList.remove("hidden");
 
-    jobCount.innerText =` ${rejectedList.length} out of ${totalCount.innerText}`
+    jobCount.innerText = ` ${rejectedList.length} out of ${totalCount.innerText}`
 
-    if(rejectedList.length == 0){
+    if (rejectedList.length == 0) {
         emptyRejected.classList.remove("hidden");
     }
-    else{
+    else {
         emptyRejected.classList.add("hidden");
     }
+
 })
 
 
 
+
+
+
+
+
+
+
+// card er interview ar card e rejected e add event listener e bosate hobe toggle
