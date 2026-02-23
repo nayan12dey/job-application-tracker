@@ -386,6 +386,7 @@ function renderRejected() {
         rejectedSection.appendChild(div);
     }
 
+    rejectedFilterCount++;
     calculateCount()
 }
 

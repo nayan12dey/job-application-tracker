@@ -33,9 +33,9 @@
 <body>
 
     <!-- header section -->
-    <header class="w-[80%] mx-auto space-y-6 mt-7">
+    <header class="w-full sm:w-[80%] mx-auto space-y-6 mt-7">
         <h1 class="text-3xl text-blue-900 font-bold">Job Application Tracker</h1>
-        <div class="grid grid-cols-3 justify-between gap-8">
+        <div class="w-[80%] grid grid-cols-1 lg:grid-cols-3 justify-between gap-8 mx-auto">
             <div class="border border-gray-300 px-5 py-4 rounded-md">
                 <p class="">Total</p>
                 <h2 class="text-blue-900 font-bold text-3xl" id="totalCount">0</h2>
@@ -384,9 +384,9 @@
     </section>
 
     <!-- no jobs available for interview section -->
-    <section class="w-[80%] mx-auto hidden" id="empty-interview">
+    <section class="w-[95%] sm:w-[90%] lg:w-[80%] mx-auto hidden" id="empty-interview">
         <div
-            class="space-y-6 py-[60px] px-50 flex flex-col justify-center items-center text-center border-2 border-gray-300 rounded-md">
+            class="space-y-6 py-[60px] px-5 sm:px-10 lg:px-20 flex flex-col justify-center items-center text-center border-2 border-gray-300 rounded-md">
             <div class="">
                 <img src="./images/jobs.png" alt="">
             </div>
@@ -399,9 +399,9 @@
     </section>
 
     <!-- no jobs available for rejected section -->
-    <section class="w-[80%] mx-auto hidden" id="empty-rejected">
+    <section class="w-[95%] sm:w-[90%] lg:w-[80%] mx-auto hidden" id="empty-rejected">
         <div
-            class="space-y-6 py-[60px] px-50 flex flex-col justify-center items-center text-center border-2 border-gray-300 rounded-md">
+            class="space-y-6 py-[60px] px-5 sm:px-10 lg:px-20 flex flex-col justify-center items-center text-center border-2 border-gray-300 rounded-md">
             <div class="">
                 <img src="./images/jobs.png" alt="">
             </div>
