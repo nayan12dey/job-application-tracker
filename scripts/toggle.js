@@ -71,6 +71,3 @@ rejectedFilterBtn.addEventListener("click", function(){
 
 
 
-
-
-
