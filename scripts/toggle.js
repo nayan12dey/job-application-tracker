@@ -2,7 +2,7 @@
 
 
 
-// button toggle
+// filter button toggle 
 const allFilterBtn = document.getElementById("all-filter-btn")
 const interviewFilterBtn = document.getElementById("interview-filter-btn")
 const rejectedFilterBtn = document.getElementById("rejected-filter-btn")
@@ -16,70 +16,61 @@ function toggleStyle(id){
     const selectedBtn = document.getElementById(id);
     console.log(selectedBtn);
     selectedBtn.classList.add("btn-primary")
+
 }
 
 
-// no jobs available toggling
+// no jobs available toggling for interview and rejected
 const allCards = document.getElementById("allCards");
 const emptyInterview = document.getElementById("empty-interview")
 const emptyRejected = document.getElementById("empty-rejected")
 
 function hide(){
     allCards.classList.add("hidden");
+    interviewSection.classList.add("hidden");
+    rejectedSection.classList.add("hidden");
     emptyInterview.classList.add("hidden");
     emptyRejected.classList.add("hidden");
+
 }
 
 allFilterBtn.addEventListener("click", function(){
     hide();
     allCards.classList.remove("hidden");
+    jobCount.innerText = totalCount.innerText;
+ 
 })
 
 interviewFilterBtn.addEventListener("click", function(){
     hide();
     interviewSection.classList.remove("hidden");
 
-    if(interviewList.length != 0){
-        emptyInterview.classList.add("hidden")
+    jobCount.innerText =` ${interviewList.length} out of ${totalCount.innerText}`
+
+    if(interviewList.length == 0){
+        emptyInterview.classList.remove("hidden")
     }
     else{
-        emptyInterview.classList.remove("hidden");
+        emptyInterview.classList.add("hidden");
     }
 })
 
 rejectedFilterBtn.addEventListener("click", function(){
     hide();
-    emptyRejected.classList.remove("hidden");
-})
+    rejectedSection.classList.remove("hidden");
 
+    jobCount.innerText =` ${rejectedList.length} out of ${totalCount.innerText}`
 
-// toggle card clicked on interview and rejected
-
-
-allCards.addEventListener("click", function(){
-
-    // console.log(event.target.classList.contains("interview-btn"))
-    if(event.target.classList.contains("interview-btn")){
-        
-        // button toggle
-        const parentNode = event.target.parentNode.parentNode.parentNode;
-        parentNode.querySelector(".current-status").innerText = "Interview";
-        parentNode.querySelector(".current-status").classList.remove("bg-error");
-        parentNode.querySelector(".current-status").classList.add("bg-success");
-
-        // accessing card
-
-
-        
+    if(rejectedList.length == 0){
+        emptyRejected.classList.remove("hidden");
     }
-
-    if(event.target.classList.contains("rejected-btn")){
-        const parentNode = event.target.parentNode.parentNode.parentNode;
-        parentNode.querySelector(".current-status").innerText = "Rejected"
-        parentNode.querySelector(".current-status").classList.remove("bg-success");
-        parentNode.querySelector(".current-status").classList.add("bg-error");
+    else{
+        emptyRejected.classList.add("hidden");
     }
 })
+
+
+
 
 
 

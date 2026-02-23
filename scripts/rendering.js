@@ -4,17 +4,24 @@
 let interviewList = [];
 let rejectedList = [];
 
-const interviewSection = document.getElementById("interview-section")
+const interviewSection = document.getElementById("interview-section");
+const rejectedSection = document.getElementById("rejected-section");
 
 allCards.addEventListener("click", function () {
     // console.log(event.target);
 
+    // event after clicked interview button
     if (event.target.classList.contains("interview-btn")) {
         const parentNode = event.target.parentNode.parentNode.parentNode;
+        parentNode.querySelector(".current-status").innerText = "Interview";
+        parentNode.querySelector(".current-status").classList.remove("bg-error");
+        parentNode.querySelector(".current-status").classList.add("bg-success");
+
+
         const companyName = parentNode.querySelector(".company").innerText;
         const jobRole = parentNode.querySelector(".role").innerText;
         const location = parentNode.querySelector(".location").innerText;
-        const status = parentNode.querySelector(".current-status").innerText;
+        // const status = parentNode.querySelector(".current-status").innerText;
         const description = parentNode.querySelector(".description").innerText;
         const interviewBtn = parentNode.querySelector(".interview-btn");
         const rejectedBtn = parentNode.querySelector(".rejected-btn");
@@ -24,7 +31,7 @@ allCards.addEventListener("click", function () {
             companyName,
             jobRole,
             location,
-            status,
+            status: "Interview",
             description,
             interviewBtn,
             rejectedBtn
@@ -32,28 +39,67 @@ allCards.addEventListener("click", function () {
 
         // console.log(cardInfo);
 
-        const cardExist = interviewList.find(item => item.companyName == cardInfo.companyName)
+        const cardExist = interviewList.find(item => item.companyName == companyName)
 
         if (!cardExist) {
             interviewList.push(cardInfo);
         }
 
-        
-        randerInterview();
+        rejectedList = rejectedList.filter(item => item.companyName != cardInfo.companyName);
+
+        renderInterview();
     }
+
+
+
+    // event after clicked rejected button
+    else if (event.target.classList.contains("rejected-btn")) {
+        const parentNode = event.target.parentNode.parentNode.parentNode;
+
+        parentNode.querySelector(".current-status").innerText = "Rejected"
+        parentNode.querySelector(".current-status").classList.remove("bg-success");
+        parentNode.querySelector(".current-status").classList.add("bg-error");
+
+
+
+        const companyName = parentNode.querySelector(".company").innerText;
+        const jobRole = parentNode.querySelector(".role").innerText;
+        const location = parentNode.querySelector(".location").innerText;
+        // const status = parentNode.querySelector(".current-status").innerText;
+        const description = parentNode.querySelector(".description").innerText;
+        // const interviewBtn = parentNode.querySelector(".interview-btn");
+        // const rejectedBtn = parentNode.querySelector(".rejected-btn");
+
+
+        const cardInfo = {
+            companyName,
+            jobRole,
+            location,
+            status: "Rejected",
+            description,
+            // interviewBtn,
+            // rejectedBtn
+        }
+
+
+        const cardExist = rejectedList.find(item => item.companyName == cardInfo.companyName)
+
+        if(!cardExist){
+            rejectedList.push(cardInfo);
+        }
+
+        interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
+
+        renderRejected();
+    }
+
 })
 
 
 // render function for interview card in interview section
-function randerInterview() {
+function renderInterview() {
     interviewSection.innerHTML = ""
 
-    if(interviewList.length != 0){
-        emptyInterview.classList.add("hidden");
-    }
-    else{
-        emptyInterview.classList.remove("hidden");
-    }
 
     for (let interview of interviewList) {
         console.log(interview);
@@ -91,6 +137,83 @@ function randerInterview() {
 
         interviewSection.appendChild(div);
     }
+
+    calculateCount()
 }
 
 
+
+// render function for interview card in interview section
+function renderRejected(){
+    rejectedSection.innerHTML = "";
+
+    for(let rejected of rejectedList){
+        console.log(rejected);
+
+        let div = document.createElement("div");
+        div.className = "border border-gray-300 p-4 flex justify-between rounded-md mb-4"
+        div.innerHTML = `
+            <div class="space-y-4">
+                    <div>
+                        <h2 class="company text-blue-900 font-bold text-xl">${rejected.companyName}</h2>
+                        <p class="role text-gray-500">${rejected.jobRole}</p>
+                    </div>
+
+                    <div>
+                        <p class="location text-gray-500">${rejected.location}</p>
+                    </div>
+
+                    <div class="space-y-2">
+                        <button class="current-status bg-error p-2 rounded-md text-blue-900 font-semibold">${rejected.status}</button>
+                        <p class="description">${rejected.description}</p>
+                    </div>
+
+                    <div class="flex gap-4">
+                        <button class="interview-btn btn btn-outline btn-success">Interview</button>
+                        <button class="rejected-btn btn btn-outline btn-error" id="">Rejected</button>
+                    </div>
+            </div>
+
+            <!-- job card delete btn -->
+            <div
+                class="w-10 h-10 border-2 border-gray-200 text-gray-500 rounded-full flex justify-center items-center cursor-pointer">
+                <i class="fa-regular fa-trash-can"></i>
+            </div>
+        
+        `
+
+        rejectedSection.appendChild(div);
+    }
+
+    calculateCount()
+}
+
+
+
+
+const totalCount = document.getElementById("totalCount");
+const jobCount = document.getElementById("jobCount");
+const allCardSection = document.getElementById("allCards");
+const interviewCount = document.getElementById("interviewCount")
+const rejectedCount = document.getElementById("rejectedCount")
+
+
+// console.log(allCards)
+
+// calculate count
+function calculateCount(){
+    totalCount.innerText = allCardSection.children.length;
+    jobCount.innerText = totalCount.innerText;
+    
+
+    interviewCount.innerText = interviewList.length;
+    rejectedCount.innerText = rejectedList.length;
+
+    console.log(interviewCount.innerText);
+
+
+    
+    
+}
+
+calculateCount()

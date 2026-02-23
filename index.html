@@ -42,11 +42,11 @@
             </div>
             <div class="border border-gray-300 px-5 py-4 rounded-md">
                 <p class="">Interview</p>
-                <h2 class=" text-green-500 font-bold text-3xl">0</h2>
+                <h2 class=" text-green-500 font-bold text-3xl" id="interviewCount">0</h2>
             </div>
             <div class="border border-gray-300 px-5 py-4 rounded-md">
                 <p>Rejected</p>
-                <h2 class="text-red-500 font-bold text-3xl">0</h2>
+                <h2 class="text-red-500 font-bold text-3xl" id="rejectedCount">0</h2>
             </div>
         </div>
     </header>
@@ -62,7 +62,7 @@
         </div>
 
 
-        <!-- toggling button section -->
+        <!-- toggling for filter button section -->
         <div class="flex gap-2">
             <button onclick="toggleStyle('all-filter-btn')" class="btn btn-primary" id="all-filter-btn">All</button>
             <button onclick="toggleStyle('interview-filter-btn')" class="btn"
@@ -415,7 +415,13 @@
 
 
     <!-- filtered card for interview section -->
-    <section id="interview-section" class="w-[80%] mx-auto">
+    <section id="interview-section" class="w-[80%] mx-auto hidden">
+
+    </section>
+
+
+    <!-- filtered card for rejected section -->
+    <section id="rejected-section" class="w-[80%] mx-auto">
 
     </section>
 
