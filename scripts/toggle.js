@@ -38,13 +38,17 @@ allFilterBtn.addEventListener("click", function(){
     hide();
     allCards.classList.remove("hidden");
     jobCount.innerText = totalCount.innerText;
+
+
  
 })
+
 
 interviewFilterBtn.addEventListener("click", function(){
     hide();
     interviewSection.classList.remove("hidden");
 
+    console.log(interviewList.length);
     jobCount.innerText =` ${interviewList.length} out of ${totalCount.innerText}`
 
     if(interviewList.length == 0){

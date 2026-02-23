@@ -102,7 +102,7 @@ allCards.addEventListener("click", function () {
         // console.log(parentNode);
         
         const card = parentNode;
-        console.log(card);
+        // console.log(card);
 
         card.remove();
 
@@ -303,7 +303,7 @@ function renderInterview() {
 
 
     for (let interview of interviewList) {
-        console.log(interview);
+        // console.log(interview);
         let div = document.createElement("div");
         div.className = "border border-gray-300 p-4 flex justify-between rounded-md mb-4"
         div.innerHTML = `
