@@ -22,7 +22,7 @@ function toggleStyle(id) {
 
 // no jobs available toggling for interview and rejected
 const allCards = document.getElementById("allCards");
-const emptyAll = document.getElementById("empty-all");
+// const emptyAll = document.getElementById("empty-all");
 const emptyInterview = document.getElementById("empty-interview")
 const emptyRejected = document.getElementById("empty-rejected")
 
@@ -30,7 +30,7 @@ function hide() {
     allCards.classList.add("hidden");
     interviewSection.classList.add("hidden");
     rejectedSection.classList.add("hidden");
-    emptyAll.classList.add("hidden");
+    // emptyAll.classList.add("hidden");
     emptyInterview.classList.add("hidden");
     emptyRejected.classList.add("hidden");
 
@@ -40,13 +40,10 @@ allFilterBtn.addEventListener("click", function () {
     activeFilter = "all";
     hide();
     const card = allCards.querySelectorAll(".newCard");
-    if (card.length == 0) {
-        emptyAll.classList.remove("hidden");
-    }
-    else {
-        allCards.classList.remove("hidden");
-    }
     
+    allCards.classList.remove("hidden");
+    
+
     jobCount.innerText = totalCount.innerText;
 })
 
@@ -62,9 +59,9 @@ interviewFilterBtn.addEventListener("click", function () {
     if (interviewList.length == 0) {
         emptyInterview.classList.remove("hidden")
     }
-    else {
-        emptyInterview.classList.add("hidden");
-    }
+    // else {
+    //     emptyInterview.classList.add("hidden");
+    // }
 })
 
 rejectedFilterBtn.addEventListener("click", function () {
@@ -77,9 +74,9 @@ rejectedFilterBtn.addEventListener("click", function () {
     if (rejectedList.length == 0) {
         emptyRejected.classList.remove("hidden");
     }
-    else {
-        emptyRejected.classList.add("hidden");
-    }
+    // else {
+    //     emptyRejected.classList.add("hidden");
+    // }
 
 })
 

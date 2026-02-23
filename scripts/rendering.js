@@ -51,7 +51,8 @@ allCards.addEventListener("click", function () {
 
 
         renderInterview();
-        renderRejected();
+        // renderRejected();
+
     }
 
 
@@ -94,8 +95,8 @@ allCards.addEventListener("click", function () {
 
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
 
-        renderInterview();
-        renderRejected();
+        // renderInterview();
+        // renderRejected();
     }
 
     else if (event.target.closest(".delete-btn")) {
@@ -109,8 +110,8 @@ allCards.addEventListener("click", function () {
 
 
 
-        renderInterview();
-        renderRejected();
+        // renderInterview();
+        // renderRejected();
         calculateCount();
 
 
@@ -368,7 +369,7 @@ function renderRejected() {
     }
     else {
         emptyRejected.classList.add("hidden");
-        
+
         for (let rejected of rejectedList) {
             // console.log(rejected);
 
