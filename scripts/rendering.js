@@ -51,7 +51,7 @@ allCards.addEventListener("click", function () {
 
 
         renderInterview();
-        renderRejected();
+        // renderRejected();
 
     }
 
