@@ -43,3 +43,13 @@ Ans :- it's a technique we add event listener to a parent element instead of add
 
 <!-- ------------------------------------------------------------------------------------------->
 
+5. What is the difference between preventDefault() and stopPropagation() methods?
+
+Ans :- 
+
+--> PreventDefault() :-  it's a method which cancels the event if it is cancelable that means     it prevents to trigger some event 
+
+example :- if you click on submit button of a form normally page reloads and sends the form but preventDefault will stop this 
+
+--> stopPropagation() :- it's a method to stop propagation as we have familiar with event bubbling it stops the that. Child element will not able to get parent element
+

@@ -51,7 +51,7 @@ allCards.addEventListener("click", function () {
 
 
         renderInterview();
-        // renderRejected();
+        renderRejected();
 
     }
 
@@ -96,7 +96,7 @@ allCards.addEventListener("click", function () {
         interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
 
         // renderInterview();
-        // renderRejected();
+        renderRejected();
     }
 
     else if (event.target.closest(".delete-btn")) {
