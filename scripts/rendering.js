@@ -258,45 +258,7 @@ rejectedSection.addEventListener("click", function () {
     }
 
     else if (event.target.classList.contains("rejected-btn")) {
-        const parentNode = event.target.parentNode.parentNode.parentNode;
-
-        parentNode.querySelector(".current-status").innerText = "Rejected"
-        parentNode.querySelector(".current-status").classList.remove("bg-success");
-        parentNode.querySelector(".current-status").classList.add("bg-error");
-
-
-
-        const companyName = parentNode.querySelector(".company").innerText;
-        const jobRole = parentNode.querySelector(".role").innerText;
-        const location = parentNode.querySelector(".location").innerText;
-        // const status = parentNode.querySelector(".current-status").innerText;
-        const description = parentNode.querySelector(".description").innerText;
-        // const interviewBtn = parentNode.querySelector(".interview-btn");
-        // const rejectedBtn = parentNode.querySelector(".rejected-btn");
-
-
-        const cardInfo = {
-            companyName,
-            jobRole,
-            location,
-            status: "Rejected",
-            description,
-            // interviewBtn,
-            // rejectedBtn
-        }
-
-
-        const cardExist = rejectedList.find(item => item.companyName == cardInfo.companyName)
-
-        if (!cardExist) {
-            rejectedList.push(cardInfo);
-        }
-
-        interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
-
-        renderInterview();
-        renderRejected();
-
+        return;
 
     }
 })
