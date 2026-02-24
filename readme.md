@@ -35,11 +35,14 @@
 
 **Ans :- when an event triggered on a child it goes to the parent like bubble**
 
+Example :- if I have an ordered list and inside this I have 3 three list item and If I add event listener to both ordered list and list item and after If we click item list it will trigger and then it will go the parent element as there is an event listener it will also trigger. it works like bubble, path: child --> parent
+
 <!-- ------------------------------------------------------------------------------------------->
 
 ## 4. What is Event Delegation in JavaScript? Why is it useful?
 
 **Ans :- it's a technique we add event listener to a parent element instead of adding event listeners to multiple child elements.**
+**it's useful because instead of adding evenlistener for every child or single element, it's efficient to use one event listener to parent element if any new items are added later it still works**
 
 <!-- ------------------------------------------------------------------------------------------->
 
@@ -53,6 +56,7 @@
 
 **ii) stopPropagation() :- it's a method to stop propagation as we have familiar with event bubbling it stops the that. Child element will not able to get parent element**
 
+**Example :-  if I have an ordered list and inside this I have 3 three list item and If I add event listener to both ordered list and list item and after If we click item list it will trigger and then it will go the parent element as there is an event listener it will also trigger. it works like bubble, path: child -> parent it will be event bubble but if we add stop propagation inside child eventlistener then it will not go the parent element and not trigger that parent event listener**
 
 
 
