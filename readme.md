@@ -53,3 +53,18 @@ example :- if you click on submit button of a form normally page reloads and sen
 
 --> stopPropagation() :- it's a method to stop propagation as we have familiar with event bubbling it stops the that. Child element will not able to get parent element
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

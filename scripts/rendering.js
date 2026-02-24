@@ -360,7 +360,7 @@ function renderInterview() {
 
 
 
-// render function for interview card in interview section
+// render function for rejected card in rejected section
 function renderRejected() {
     rejectedSection.innerHTML = "";
 
