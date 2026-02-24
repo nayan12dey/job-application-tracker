@@ -27,7 +27,6 @@
   **Example :- let div = document.createElement("div");**
 
   **ii) for insert a new element :- append or appenappendChild**
-  -------------------
   **Example :- interviewSection.appendChild(div);**
 
 <!-- ------------------------------------------------------------------------------------------->
