@@ -35,7 +35,7 @@
 
 **Ans :- when an event triggered on a child it goes to the parent like bubble**
 
-Example :- if I have an ordered list and inside this I have 3 three list item and If I add event listener to both ordered list and list item and after If we click item list it will trigger and then it will go the parent element as there is an event listener it will also trigger. it works like bubble, path: child --> parent
+**Example :- if I have an ordered list and inside this I have 3 three list item and If I add event listener to both ordered list and list item and after If we click item list it will trigger and then it will go the parent element as there is an event listener it will also trigger. it works like bubble, path: child --> parent**
 
 <!-- ------------------------------------------------------------------------------------------->
 
